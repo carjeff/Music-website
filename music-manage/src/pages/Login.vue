@@ -1,3 +1,4 @@
+
 <template>
     <div class="login-wrap">
         <!-- <img src="../assets/img/background.jpg"> -->
@@ -19,7 +20,10 @@
 </template>
 
 <script>
+import {mixin} from "../mixins/index";
+import {getLoginStatus} from "../api/index";
 export default {
+    mixins:[mixin],
     data: function(){
         return {
             ruleForm: {
@@ -38,11 +42,24 @@ export default {
     },
     methods:{
         submitForm(){
-            alert("提交");
+            let param = new URLSearchParams();
+            param.append("name",this.ruleForm.username);
+            param.append("password",this.ruleForm.password);
+            getLoginStatus(param)
+                .then((res) => {
+                    if(res.code == 1){
+                        this.$router.push("/Info");
+                        this.notify("登陆成功","success");
+                    }else{
+                        this.notify("登陆失败","error");
+                    }
+                })
         }
     }
 }
 </script>
+
+
 
 <style scoped>
 .login-wrap {

@@ -9,6 +9,6 @@
 
 
     <select id="verifyPassword" resultType="java.lang.Integer">
-        select count (*) from admin where name = #{0} and password=#{1}
+        select count(*) from admin where name = #{name} and password=#{password}
     </select>
 </mapper>
