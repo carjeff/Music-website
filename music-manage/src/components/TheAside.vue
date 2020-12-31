@@ -77,7 +77,7 @@ export default {
     overflow-y: scroll;
 }
 .sidebar-el-menu :not(.el-menu--collapse){
-    width: 150px;
+    /* width: 10px; */
 }
 .sidebar::-webkit-scrollbar {
     width: 0;

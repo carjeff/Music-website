@@ -48,6 +48,7 @@ export default {
             getLoginStatus(param)
                 .then((res) => {
                     if(res.code == 1){
+                        localStorage.setItem('name',this.ruleForm.username);
                         this.$router.push("/Info");
                         this.notify("登陆成功","success");
                     }else{
@@ -70,7 +71,7 @@ export default {
     background-size: cover;
     width: 100%;
     height: 100%;
-    margin: -8px;
+    /* margin: -8px; */
 }
 .ms-title {
     position: absolute;
